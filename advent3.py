@@ -1,9 +1,7 @@
 with open('input3.txt') as f:
     textlist = list(f)
-    #print ( len(textlist))
     height = len(textlist)
 
-    
 def calculot(slopeRight, slopeDown, input):
     rowlength = len(input[0]) - 1
     trees = 0
@@ -16,22 +14,15 @@ def calculot(slopeRight, slopeDown, input):
         if vertical >= height:
             break
         cursor = cursor + slopeRight
-        #print(cursor,end='')
         if cursor >= rowlength:
             cursor = 0 + (cursor % rowlength)
-            #print (" <-old : new-> ",cursor)
-        #print(trees)    
-
         row = list(textlist[vertical])
         row.pop
         if row[cursor] == ".":
             clear = clear + 1
-            #print ("O",end='')
         else:
-            #print (row[cursor])
             assert row[cursor] == "#"
-            trees = trees + 1
-            #print ("X",end='')
+            trees = trees + 1            
     print("slope right, slope down, trees, clear: ", slopeRight, slopeDown, trees, clear)
     return trees
 
